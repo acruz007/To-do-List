@@ -1,110 +1,73 @@
 <!doctype html>
 <html lang="en">
 
-<head>
-  
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
+    <head>
+    
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
 
-    <title>My Todo List</title>
+        <title>My Todo List</title>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
 
-</head>
+    </head>
 
 
-<body>
-   
-    <header>
-       <h1>My Todo List</h1>
-    </header>
-    <main >
-        <section>
-            <div class="container addArea">
-                <div class="row">
-                    <div class="col-sm-9">
-                        <h2>Add a ToDo Item</h2>
-                        <input type="text" id="myTodo">
-                        <span id="addItem">Add</span>
+    <body>
+    
+        <header>
+        <h1>My Todo List</h1>
+        </header>
+
+        <main>
+            <section>
+                <div class="container addArea">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <h2>Add a ToDo Item</h2>
+                            <input type="text" id="myTodo">
+                            <span id="addItem">Add</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <section>
+            </section>
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Uncompleted Todos</h5>
+                            <ul id="todos"></ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Completed Todos</h5>
+                            <ul id="completedTodos"></ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>  
+
+        <!-- FOOTER -->
+        <footer class="container">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
-                        <h5>Uncompleted Todos</h5>
-                        <ul id="todos"></ul>
-                    </div>
-                    <div class="col-md-6">
-                        <h5>Completed Todos</h5>
-                        <ul id="completedTodos"></ul>
+                    <div class="col">
+                        <p>&copy; 2018 My Todo List</p>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>  
-    <!-- FOOTER -->
-    <footer class="container">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <p>&copy; 2018 My Todo List</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+        </footer>
 
-  
-    <!-- jQuery first, then Popper.js, then Bootstrap JS, then custom js -->
-    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    
-    <!-- then custom js -->
-    <script>
-        $(document).ready(function(){
-            // Add eventlistener to the add button
-            $('#addItem').on("click", function(){
-                // lets get the value of the input element
-                var myTodo = $('#myTodo').val()
-                // lets clear the input field since we have the value
-                $('#myTodo').val("")
-                // Only proceed if we have an item
-                if ( myTodo !== "" ) {
-                    // lets create our li element
-                    todo = $("<li>")
-                    // lets append the span tag with the checkmark
-                    todo.append("<span class='item'>&#x2713;</span>")
-                    // Lets append the value of the input to the li
-                    todo.append(myTodo)
-                    // lets add the li to the ul
-                    $('#todos').prepend(todo)
-                }
-            })
-            // lets handle what happens when you click on an item in the uncompleted list
-            $('#todos').on("click", ".item", function(){
-                // Lets remove from the uncompleted list
-                $(this).parent('li').remove()
-                // lets add the checked class
-                $(this).parent('li').addClass("checked")
-                // lets swap out the checkmark for an X and then add the class 'remove' and remove the class "item"
-                $(this).html("&#10007;").addClass('remove').removeClass('item')
-                // lets have a reference to its parent
-                $this = $(this).parent('li')
-                // and lets place it in the completed section
-                $('#completedTodos').append($this)
-            })
-            $('#completedTodos').on("click", ".remove", function(){
-                // Lets remove from the uncompleted list
-                $(this).parent('li').remove()
-            })
-        })
-    </script>
+        <!-- jQuery first, then Popper.js, then Bootstrap JS, then custom js -->
+        <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-</body>
+        <!-- Custom js -->
+        <script src="scripts/main.js"></script>
+        
+    </body>
 
 </html>
