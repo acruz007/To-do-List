@@ -1,0 +1,97 @@
+//
+// Custom styles
+//
+
+body { background-color: $gray-500; }
+
+header {
+  text-align: center;
+  background-color: $gray-600;
+  h1 {
+    color: $white;
+    padding: 30px;
+    margin-bottom: 0;
+  }
+}
+
+main {
+  border-top: 10px solid $white;
+  padding: 20px 0;
+  position: relative;
+  background-color: $gray-300;
+  section {
+    padding: 40px;
+    &:first-child {
+      padding-bottom: 0;
+    }
+  }
+  .addArea { 
+    border-bottom: 1px solid $white; 
+    padding-bottom: 40px;
+  }
+  input {
+    width: 75%;
+    padding: 10px;
+    float: left;
+    border: none;
+  }
+  #addItem {
+    padding: 10px;
+    width: 25%;
+    background: $gray-600;
+    color: $white;
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover { 
+      background-color: $gray-700;
+    }
+  }
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  li {
+    list-style-type: none;
+    position: relative;
+    padding: 8px 8px;
+    cursor: pointer;
+    &:hover { background: $gray-100; }
+    span {
+      border: 1px solid $gray-500;
+      color: $gray-500;
+      padding: 3px 6px;
+      margin-right: 10px;
+      &:hover {
+        background-color: $gray-600;
+        color: $white;
+        transition: 0.3s;
+      }
+    }
+    .item { background-color: $gray-400; }
+    .remove {
+      color: $gray-600;
+      border: 1px solid $gray-600;
+      background-color: none;
+      &:hover { 
+        background-color: $red;
+        color: $white;
+        border: 1px solid $red;
+        transition: 0.3s;
+      }
+    }
+  }
+  .checked { 
+    color: $gray-500; 
+    span { text-decoration: none; }
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  font-size: 12px;
+}
